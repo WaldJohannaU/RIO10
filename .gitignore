@@ -173,3 +173,5 @@ cython_debug/
 data/seq*
 data/predictions
 build
+errors
+*.zip
