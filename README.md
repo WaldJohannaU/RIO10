@@ -2,11 +2,11 @@
 
 ### Dataset Overview
 
-In this work, we adapt [3RScan](waldjohannau.github.io/RIO) - a recently introduced indoor RGB-D dataset of changing indoor environments - to create [RIO10](waldjohannau.github.io/RIO10), a new long-term camera re-localization benchmark focused on indoor scenes. RIO10 consists of 74 sequences. We provide splits into training, validation (one sequence per scene) and testing sets, leaving us with 10 train, 10 validation and 54 test sequences overall, see corresponding [metadata.json](data/metadata.json).
+In this work, we adapt [3RScan](https://waldjohannau.github.io/RIO) - a recently introduced indoor RGB-D dataset of changing indoor environments - to create [RIO10](https://waldjohannau.github.io/RIO10), a new long-term camera re-localization benchmark focused on indoor scenes. RIO10 consists of 74 sequences. We provide splits into training, validation (one sequence per scene) and testing sets, leaving us with 10 train, 10 validation and 54 test sequences overall, see corresponding [metadata.json](data/metadata.json).
 
 ### Download
 
-If you would like to download the [RIO10](waldjohannau.github.io/RIO10) data, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLScA-zciAgxMz7r8xirsPQodeQnPk2XA68yBpSxP10167B-M_g/viewform?usp=sf_link). 
+If you would like to download the [RIO10](https://waldjohannau.github.io/RIO10) data, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLScA-zciAgxMz7r8xirsPQodeQnPk2XA68yBpSxP10167B-M_g/viewform?usp=sf_link). 
 
 ### Dataformat
 
