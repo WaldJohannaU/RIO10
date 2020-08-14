@@ -1,0 +1,221 @@
+{
+   "methods":{
+      "active_search":{
+         "title":"Active Search",
+         "color":"#3985bd"
+      },
+      "active_search_seq10":{
+         "title":"Active Search 10",
+         "color":"#3985bd"
+      },
+      "active_search_seq30":{
+         "title":"Active Search 30",
+         "color":"#3985bd"
+      },
+      "active_search_seq100":{
+         "title":"Active Search 100",
+         "color":"#3985bd"
+      },
+      "HFNet":{
+         "title":"HFNet",
+         "color":"#003366"
+      },
+      "HFNet_Trained":{
+         "title":"HFNet Trained",
+         "color":"#FF66B2"
+      },
+      "d2_net":{
+         "title":"D2Net",
+         "color":"#fb891d"
+      },
+      "d2_net_seq10":{
+         "title":"D2Net 10",
+         "color":"#fb891d"
+      },
+      "d2_net_seq30":{
+         "title":"D2Net 30",
+         "color":"#fb891d"
+      },
+      "d2_net_seq100":{
+         "title":"D2Net 100",
+         "color":"#fb891d"
+      },
+      "grove_v1":{
+         "title":"Grove",
+         "color":"#138D75"
+      },
+      "grove_v1_seq10":{
+         "title":"Grove 10",
+         "color":"#138D75"
+      },
+      "grove_v1_seq30":{
+         "title":"Grove 30",
+         "color":"#138D75"
+      },
+      "grove_v1_seq100":{
+         "title":"Grove 100",
+         "color":"#138D75"
+      },
+      "grove_v2":{
+         "title":"Grove V2",
+         "color":"#138D75"
+      },
+      "grove_v2_seq10":{
+         "title":"Grove V2 10",
+         "color":"#138D75"
+      },
+      "grove_v2_seq30":{
+         "title":"Grove V2 30",
+         "color":"#138D75"
+      },
+      "grove_v2_seq100":{
+         "title":"Grove V2 100",
+         "color":"#138D75"
+      },
+      "NetVLAD_Top1":{
+         "title":"NetVLAD Top 1",
+         "color":"#A569BD"
+      },
+      "NetVLAD_Top20":{
+         "title":"NetVLAD Top 20",
+         "color":"#A569BD"
+      },
+      "DenseVLAD_Top1":{
+         "title":"DenseVLAD Top 1",
+         "color":"#F7DC6F"
+      },
+      "DenseVLAD_Top20":{
+         "title":"DenseVLAD Top 20",
+         "color":"#F7DC6F"
+      }
+   },
+   "change_corr":{
+      "filename":"",
+      "methods":[
+         "active_search",
+         "grove_v1",
+         "grove_v2",
+         "d2_net",
+         "HFNet"
+      ],
+      "stats_keys":[
+         "SemanticChange",
+         "GeometricChange",
+         "NSSD",
+         "NCCOEFF"
+      ],
+      "axis_xlabel":[
+         "Semantic Difference",
+         "Depth Difference",
+         "Visual Difference",
+         "Normalized Correlation Coefficient"
+      ],
+      "axis_ylabel":"Correcty Localized",
+      "axis_ylimit":[
+         0,
+         1
+      ],
+      "axis_xlimit":[
+         [
+            0.07,
+            0.7
+         ],
+         [
+            40,
+            950
+         ],
+         [
+            0.05,
+            0.8
+         ],
+         [
+            0.05,
+            0.8
+         ]
+      ],
+      "limits":[
+         [
+            0.1,
+            0.45
+         ],
+         [
+            150,
+            420
+         ],
+         [
+            0.22,
+            0.66
+         ],
+         [
+            0.22,
+            0.66
+         ]
+      ],
+      "step":[
+         [
+            0.0,
+            1.0,
+            0.01
+         ],
+         [
+            0.0,
+            1500.0,
+            15.0
+         ],
+         [
+            0.0,
+            1.10,
+            0.011
+         ],
+         [
+            0.0,
+            1.10,
+            0.011
+         ]
+      ]
+   },
+   "overview":{
+      "filename":"",
+      "methods":[
+         "active_search",
+         "grove_v1",
+         "grove_v2",
+         "d2_net",
+         "HFNet"
+      ],
+      "bins":1000,
+      "y_max":0.7,
+      "x_range":[
+         [
+            0,
+            0.5
+         ],
+         [
+            0,
+            20
+         ],
+         [
+            0,
+            0.25
+         ]
+      ],
+      "y_limit_min":0.15,
+      "x_label":[
+         "Positional Error [Meters]",
+         "Angular Error [Degrees]",
+         "Error (DCRE)"
+      ],
+      "x_limit":[
+         [
+            0.05
+         ],
+         [
+            5
+         ],
+         [
+            0.05,
+            0.15
+         ]
+      ]
+   }
+}
