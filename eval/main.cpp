@@ -84,9 +84,9 @@ class EvaluationServer {
     }
 
     bool ComputeErrors(const std::string& file_path, const std::string& output_filename) {
-        std::cout << "saving results in " << file_path + "/" + output_filename << std::endl;
+        std::cout << "saving results in " << output_filename << std::endl;
         std::ofstream file;
-        file.open(file_path + "/" + output_filename);
+        file.open(output_filename);
         for (const auto& gt: poses_GT) {
             const Eigen::Matrix4f& GT_pose = gt.second;
             const std::string identifier = gt.first;
@@ -161,11 +161,11 @@ int main(int argc, char** argv) {
     }
     const std::string data_path{argv[1]};
     const std::string pred_path{argv[2]};
-    const std::string output_filename{argv[3]};
+    const std::string output_file{argv[3]};
 
     const std::clock_t start = std::clock();
     EvaluationServer eval;
-    eval.Run(data_path, pred_path, output_filename);
+    eval.Run(data_path, pred_path, output_file);
     std::cout << "took: "<< (std::clock() - start) / (double) CLOCKS_PER_SEC << "seconds \n";
     return 0;
 }
