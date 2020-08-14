@@ -171,4 +171,5 @@ cython_debug/
 *.app
 
 data/seq*
+data/predictions
 build
