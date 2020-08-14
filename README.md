@@ -97,20 +97,19 @@ seq02_03/frame-000104	0.438 -0.830 -0.302 0.163 -2.452 -0.573 0.038
 We provide a simple merge script to combine your predictions if you have multiple prediction files:
 
 ```
-python merge_poses.py --input_folder=./predictions --output_file=prediction.txt
+python [merge_poses.py](src/merge_poses.py) --input_folder=your_predictions --output_file=merged_prediction.txt
 ```
 
 To compute the pose errors run the code as follows: 
 
 ```
-DATA=../../data
+DATA=../../../data
 METHOD=active_search
 
-cd eval/build
+cd src/eval/build
 cmake -DCMAKE_BUILD_TYPE=Release .. && make -j8
 
 ./eval $DATA $DATA/predictions/$METHOD.txt errors/$METHOD.txt
-cd ../..
 ```
 
 This generates an output error file in the following format:
@@ -127,11 +126,10 @@ seq01_02/frame-000027	0.126553 2.55466 0.0314654
 
 To run the evaluation for all methods in the `data/predictions` folder simply run `./evaluate.sh`. This will compute and save the errors for each provided pose (in the validation set) and saves it in `data/errors`.
 
-Based on these errors files you can then generate evaluation plots (cumulative DCRE) or see the error with respect to increasing change  `python plot.py`.
+Based on these errors files you can then generate evaluation plots (cumulative DCRE) or see the error with respect to increasing change  `python [plot.py](src/plot.py)`.
 
 
-
-The `plot.py` script expects the data folder to be in a predefined structure. The predictions are the methods to plot listed in `config.json`, see `config['change_corr']['methods']` or `config['overview']['methods']`. If nothing is set there; all methods in the `data/predictions` folder are plotted.
+The `[plot.py](src/plot.py)` script expects the data folder to be in a predefined structure. The predictions are the methods to plot listed in `config.json`, see `config['change_corr']['methods']` or `config['overview']['methods']`. If nothing is set there; all methods in the `data/predictions` folder are plotted.
 
 ```
 data

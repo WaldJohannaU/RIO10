@@ -1,10 +1,13 @@
 #/bin/bash
 
-cd eval/build
+cd src/eval
+rm -r build
+mkdir build
+cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j8
-cd ../../
+cd ../../../
 
 for i in data/predictions/*.txt ; do 
-	eval/build/eval data data/predictions/${i##*/} data/errors/${i##*/}
+	src/eval/build/eval data data/predictions/${i##*/} data/errors/${i##*/}
 done
