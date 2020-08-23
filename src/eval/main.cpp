@@ -90,21 +90,24 @@ class EvaluationServer {
         for (const auto& gt: poses_GT) {
             const Eigen::Matrix4f& GT_pose = gt.second;
             const std::string identifier = gt.first;
-            const Eigen::Matrix4f predicted_pose = poses_predicted[identifier];
-            if ((poses_predicted.find(identifier) != poses_predicted.end()) && IsValidMatrix(predicted_pose)) {
-                const std::string seq = identifier.substr(0, identifier.find("_"));
-                const std::string seq_identifier = identifier.substr(0, identifier.find("/"));
-                const std::string depth_path = file_path + "/" + seq + "/" + identifier + frame_depth_suffix;
-                const float trans_error = Eigen::Vector3f(GT_pose.block<3, 1>(0, 3) - predicted_pose.block<3,1>(0,3)).norm();
-                const Eigen::Quaternionf quaternion_pred(predicted_pose.block<3,3>(0,0));
-                const float rot_error = QuaternionAngularError(Eigen::Quaternionf(GT_pose.block<3,3>(0,0)), quaternion_pred);
-                const float DCRError = DCRE(intrinsics_map.at(seq_identifier), depth_path, GT_pose, predicted_pose);
-                file << identifier << " " << trans_error << " " << rot_error << " " << DCRError  << std::endl;
+            if (poses_predicted.find(identifier) != poses_predicted.end()) {
+                const Eigen::Matrix4f predicted_pose = poses_predicted[identifier];
+                if (IsValidMatrix(predicted_pose)) {
+                    const std::string seq = identifier.substr(0, identifier.find("_"));
+                    const std::string seq_identifier = identifier.substr(0, identifier.find("/"));
+                    const std::string depth_path = file_path + "/" + seq + "/" + identifier + frame_depth_suffix;
+                    const float trans_error = Eigen::Vector3f(GT_pose.block<3, 1>(0, 3) - predicted_pose.block<3,1>(0,3)).norm();
+                    const Eigen::Quaternionf quaternion_pred(predicted_pose.block<3,3>(0,0));
+                    const float rot_error = QuaternionAngularError(Eigen::Quaternionf(GT_pose.block<3,3>(0,0)), quaternion_pred);
+                    const float DCRError = DCRE(intrinsics_map.at(seq_identifier), depth_path, GT_pose, predicted_pose);
+                    file << identifier << " " << trans_error << " " << rot_error << " " << DCRError  << std::endl;
+                }
             }
         }
         file.close();
         return true;
     }
+
     
     void ReadLine(MatrixMap& poses, const std::string& line) {
         std::string file_name;
