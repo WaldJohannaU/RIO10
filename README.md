@@ -143,3 +143,19 @@ data
     └── ...
 ...
 ```
+
+#### Sequence-based Re-Localization
+
+We also provide the code to produce the sequence-based relocalization results described in the supplementary of the paper.
+
+For methods that process and relocalize each frame independently, you can run
+the `./src/compute_batched_relocalizations.py` script to batch the individual frame results into chunks to improve the relocalizations.
+Run the script as follows:
+
+`./src/compute_batched_relocalizations.py [--chunk-size N] <camera_poses.txt> <reloc_poses.txt> <out_folder>`
+
+Params:
+- `--chunk-size`: The number of consecutive frames to use to robustify the relocalization.
+- `camera_poses.txt`: File containing a list of camera poses (they have to be accurate frame-to-frame, the origin doesn't matter for this specific script) in the same format as the relocalization poses.
+- `reloc_poses.txt`: File containing a list of relocalization poses, format as described [here](#evaluation)
+- `out_folder`: Folder that will contain the output relocalizations. Same format as above.
