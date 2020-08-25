@@ -1,2 +1,5 @@
+dual-quaternions
 numpy
 matplotlib
+tqdm
+transforms3d
