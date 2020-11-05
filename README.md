@@ -86,7 +86,7 @@ In this work, we propose a new metric DCRE for evaluating camera re-localization
 To evaluate your method on the valdiation set, simply save your prediction results in a `.txt` file of the following format:
 
 ```
-# scene-id/frame-id qx qy qz qw tx ty tz
+# scene-id/frame-id qw qx qy qz tx ty tz
 seq02_03/frame-000000	0.468 -0.841 -0.238 0.123 -2.371 -0.590 0.044
 seq02_03/frame-000001	0.461 -0.839 -0.252 0.134 -2.388 -0.586 0.043
 seq02_03/frame-000002	0.454 -0.836 -0.267 0.146 -2.408 -0.582 0.042
