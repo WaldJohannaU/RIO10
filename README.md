@@ -10,7 +10,7 @@ If you would like to download the [RIO10](https://waldjohannau.github.io/RIO10) 
 
 ### Dataformat
 
-Sequences in RIO10 follow the naming convention `seq<scene_id>_<scan_id>`. The scenes (`seq<scene_id>.zip`) and models (`models<scene_id>.zip`) are stored per scene and consist of multiple sequences e.g.:
+Sequences in RIO10 follow the naming convention `seq<scene_id>_<scan_id>`. The scenes (`seq<scene_id>.zip`), models (`models<scene_id>.zip`) and semantics (`semantics<scene_id>.zip`) are stored per scene and consist of multiple sequences e.g.:
     
 ```
 seq02.zip
@@ -38,6 +38,16 @@ seq02.zip
 ```
 
 ```
+semantics02.zip
+├── seq02_01
+│   ├── instances.txt
+│   ├── frame-000000.instances.png
+│   ├── frame-000001.instances.png
+│   └── ...
+└── seq02_02
+```
+
+```
 models02.zip
 ├── seq02_01
 │   ├── labels.ply
@@ -50,7 +60,7 @@ models02.zip
 └── ...
 ```
 
-Sequence `seq<scene_id>_01` is always the training sequence (with `*.color.jpg`, `*.pose.txt` and `*.rendered.depth.png`), seqXX_02 is the validation sequence (with `*.color.jpg`, `*.pose.txt` and `*.rendered.depth.png`). Please note that we do not provide the ground truth for our hidden test set, all seqXX_02+ are hidden sequences (only `*.color.jpg` and `*.rendered.depth.png`).
+Sequence `seq<scene_id>_01` is always the training sequence (with `*.color.jpg`, `*.pose.txt` and `*.rendered.depth.png`), seqXX_02 is the validation sequence (with `*.color.jpg`, `*.pose.txt` and `*.rendered.depth.png`). Please note that we do not provide the ground truth (including semantics) for our hidden test set, all seqXX_02+ are hidden sequences (only `*.color.jpg` and `*.rendered.depth.png`).
 
 Poses `*.pose.txt` of the test (rescan) sequences are aligned with the train (reference) and validation scans. These transform from the camera coordinate system to the world coordinate system. Please use our evaluation service to compute your final performance score on the hidden test set.
 
